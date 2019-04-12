@@ -3,6 +3,7 @@ package com.zhyyu.learn.beetlsql;
 import java.util.Date;
 import java.util.List;
 
+import com.zhyyu.learn.beetlsql.mapper.UserDao;
 import org.beetl.sql.core.ClasspathLoader;
 import org.beetl.sql.core.ConnectionSource;
 import org.beetl.sql.core.ConnectionSourceHelper;
@@ -61,10 +62,15 @@ public class Main1 {
          
         
         //使用user.md 文件里的select语句，参考下一节。
-        User query2 = new User();
+        /*User query2 = new User();
         query2.setName("xiandafu");
         List<User> userList2 = sqlManager.select("user.select",User.class,query2);
-        System.out.println(userList2);
+        System.out.println(userList2);*/
+
+        UserDao userDao = sqlManager.getMapper(UserDao.class);
+        List<User> userList3 = userDao.select("xiandafu");
+        System.out.println(userList3);
+
     }
 
 }
