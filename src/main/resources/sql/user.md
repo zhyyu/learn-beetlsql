@@ -7,3 +7,7 @@ and age = #age#
 @if(!isEmpty(name)){
 and name = #name#
 @}
+
+updateAllName
+===
+update user set name = #name#
